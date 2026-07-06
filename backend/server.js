@@ -6,6 +6,7 @@ const { poolPromise } = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const vehicleRoutes = require("./routes/vehicleRoutes");
 const inquiryRoutes = require("./routes/inquiryRoutes");
+const reservationRoutes = require("./routes/reservationRoutes");
 
 const verifyToken = require("./middleware/authMiddleware");
 const checkRole = require("./middleware/roleMiddleware");
@@ -51,6 +52,9 @@ app.use("/api/vehicles", vehicleRoutes);
 
 // Inquiry routes
 app.use("/api/inquiries", inquiryRoutes);
+
+// Reservation routes
+app.use("/api/reservations", reservationRoutes);
 
 // Protected route test
 app.get("/api/protected-test", verifyToken, (req, res) => {
