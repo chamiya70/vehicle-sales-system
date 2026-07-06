@@ -9,6 +9,7 @@ const inquiryRoutes = require("./routes/inquiryRoutes");
 const reservationRoutes = require("./routes/reservationRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const saleRoutes = require("./routes/saleRoutes");
+const testDriveRoutes = require("./routes/testDriveRoutes");
 
 const verifyToken = require("./middleware/authMiddleware");
 const checkRole = require("./middleware/roleMiddleware");
@@ -63,6 +64,9 @@ app.use("/api/payments", paymentRoutes);
 
 // Sales routes
 app.use("/api/sales", saleRoutes);
+
+// Test Drive routes
+app.use("/api/test-drives", testDriveRoutes);
 
 // Protected route test
 app.get("/api/protected-test", verifyToken, (req, res) => {
