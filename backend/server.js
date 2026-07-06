@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const { poolPromise } = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
+const vehicleRoutes = require("./routes/vehicleRoutes");
+
 const verifyToken = require("./middleware/authMiddleware");
 const checkRole = require("./middleware/roleMiddleware");
 
@@ -42,6 +44,9 @@ app.get("/api/test-db", async (req, res) => {
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
+
+// Vehicle routes
+app.use("/api/vehicles", vehicleRoutes);
 
 // Protected route test
 app.get("/api/protected-test", verifyToken, (req, res) => {
